@@ -2,8 +2,171 @@
 <html>
 <head>
 	<title>Uptime Ghana</title>
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			line-height: 1.8em;
+			color: #666;
+			margin: 0;
+		}
+
+		.header {
+			background: #000;
+			color: #fff;
+			padding: 10px 0;
+		}
+		.logo {
+			text-align: center;
+		}
+		.logo h1 {
+			margin: 0;
+			padding: 0;
+			font-size: 36px;
+		}
+		.logo h1 a {
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.hero {
+			background: #000;
+			color: #fff;
+			padding: 60px 0;
+		}
+
+		.hero-title {
+			font-size: 50px;
+			margin-bottom: 10px;
+		}
+
+		.hero-subtitle {
+			font-size: 24px;
+			margin-bottom: 30px;
+		}
+
+		.hero-search {
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.hero-search .input-group {
+			width: 100%;
+		}
+
+		.hero-search .input-group .form-control {
+			border-radius: 0;
+			border: 0;
+			height: 60px;
+			font-size: 24px;
+		}
+
+		.hero-search .input-group .form-control:focus {
+			box-shadow: none;
+		}
+
+		.hero-search .input-group .input-group-btn .btn {
+			border-radius: 0;
+			border: 0;
+			height: 60px;
+			font-size: 24px;
+			background: #fff;
+			color: #000;
+		}
+
+		.hero-search .input-group .input-group-btn .btn:hover {
+			background: #e6e6e6;
+		}
+
+		.hero-search .input-group .input-group-btn .btn:focus {
+			box-shadow: none;
+		}
+
+		.hero-search .input-group .input-group-btn .btn:active {
+			background: #e6e6e6;
+		}
+
+		.hero-search .input-group .input-group-btn .btn i {
+			margin-right: 5px;
+		}
+
+		.hero-search .input-group .input-group-btn .btn span {
+			position: relative;
+			top: -2px;
+		}
+
+		/* search styling */
+		.search {
+			background: #f4f4f4;
+			padding: 60px 0;
+		}
+
+		.search .search-form {
+			width: 100%;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+	</style>
 </head>
 <body>
-	<h1>Status Checker</h1>
+	<!-- Header -->
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Logo -->
+					<div class="logo">
+						<h1><a href="index.html">Uptime Ghana</a></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Hero with search -->
+	<div class="hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Hero content -->
+					<div class="hero-content">
+						<h1 class="hero-title">Real-time service outage monitoring</h1>
+						<p class="hero-subtitle">We monitor your services and notify you when they go down.</p>
+						<!-- Search form -->
+
+						<form action="/search" method="post">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search for..." name="search">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit">Go!</button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--  Trending services -->
+	<div class="services-grid">
+		<div class="service">
+			<div class="logo">
+				<img src="https://via.placeholder.com/100x100" alt="Service logo">
+			</div>
+
+			<div class="service-name">
+				<p>Some service</p>
+				<p class="status-badge">Status</p>
+			</div>
+
+			<div class="chart">
+
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
