@@ -7,7 +7,11 @@ cursor.execute('''
 CREATE TABLE sites (
     id INTEGER PRIMARY KEY,
     name TEXT,
+    company TEXT,
     url TEXT,
+    category TEXT,
+    popularity INTEGER,
+    image TEXT,
     downtime DATETIME DEFAULT NULL
 )
 ''')
