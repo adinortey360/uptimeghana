@@ -2,14 +2,6 @@
 
 A tool for generating and monitoring various website uptimes in Ghana.
 
-# Table of Contents
-## Introduction
-### Features
-### Installation
-### Running the Application Locally
-### Contributing
-### Updates
-
 ## Introduction
 This project aims to create a website uptime generator for monitoring various websites in Ghana. This tool will help users, developers, and businesses track their website's uptime and ensure the availability of their services to their customers.
 
