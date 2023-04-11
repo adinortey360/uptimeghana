@@ -70,7 +70,7 @@
 									</div>
 									<div class="company_name">
 										<h4><b>{{ status.company }}</b></h4>
-										<p>{{ status.company }}</p>
+										<p><span class="dot online"></span> {{ status.url }}</p>
 									</div>
 									</div>
 							{% endfor %}
@@ -96,9 +96,6 @@
 						<div>
 							<h4><b>Uptime</b></h4>
 							<p>Online</p>
-							<!-- simple line chart -->
-							<canvas id="myChart"></canvas>
-
 						</div>
 					</div>
 				</div>
