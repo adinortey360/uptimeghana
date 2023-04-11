@@ -2,212 +2,12 @@
 <html>
 <head>
 	<title>Uptime Ghana</title>
-	<!-- bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-	<style>
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 14px;
-			line-height: 1.8em;
-			color: #666;
-			margin: 0;
-		}
-
-		.header {
-			background: #000;
-			color: #fff;
-			padding: 10px 0;
-		}
-
-		.headernav {
-			display: flex;
-    		justify-content: space-between;
-		}
-
-		.logo {
-			text-align: center;
-		}
-		.logo h1 {
-			margin: 0;
-			padding: 0;
-			font-size: 36px;
-		}
-		.logo h1 a {
-			color: #fff;
-			text-decoration: none;
-		}
-
-		.navbar {
-			text-align: center;
-			display: flex;
-		}
-
-		.navbar ul {
-			margin: 0;
-			padding: 0;
-		}
-
-		.navbar ul li {
-			display: inline-block;
-			margin: 0 10px;
-		}
-
-		.navbar ul li a {
-			color: #fff;
-			text-decoration: none;
-			font-size: 16px;
-		}
-
-		.hero {
-			background: #000;
-			color: #fff;
-			padding: 60px 0;
-		}
-
-		.hero-title {
-			font-size: 50px;
-			margin-bottom: 10px;
-		}
-
-		.hero-subtitle {
-			font-size: 24px;
-			margin-bottom: 30px;
-		}
-
-		.hero-search {
-			width: 100%;
-			max-width: 600px;
-			margin: 0 auto;
-		}
-
-		.hero-search .input-group {
-			width: 100%;
-		}
-
-		.hero-search .input-group .form-control {
-			border-radius: 0;
-			border: 0;
-			height: 60px;
-			font-size: 24px;
-		}
-
-		.hero-search .input-group .form-control:focus {
-			box-shadow: none;
-		}
-
-		.hero-search .input-group .input-group-btn .btn {
-			border-radius: 0;
-			border: 0;
-			height: 60px;
-			font-size: 24px;
-			background: #fff;
-			color: #000;
-		}
-
-		.hero-search .input-group .input-group-btn .btn:hover {
-			background: #e6e6e6;
-		}
-
-		.hero-search .input-group .input-group-btn .btn:focus {
-			box-shadow: none;
-		}
-
-		.hero-search .input-group .input-group-btn .btn:active {
-			background: #e6e6e6;
-		}
-
-		.hero-search .input-group .input-group-btn .btn i {
-			margin-right: 5px;
-		}
-
-		.hero-search .input-group .input-group-btn .btn span {
-			position: relative;
-			top: -2px;
-		}
-
-		/* search styling */
-		.search {
-			background: #f4f4f4;
-			padding: 60px 0;
-		}
-
-		.search .search-form {
-			width: 100%;
-			max-width: 600px;
-			margin: 0 auto;
-		}
-
-
-		/* service cards */
-		.services {
-			padding: 60px 0;
-		}
-
-		.services .service {
-			background: #f4f4f4;
-			padding: 20px;
-			margin-bottom: 20px;
-		}
-
-		.services .service .service-title {
-			font-size: 24px;
-			margin-bottom: 10px;
-		}
-
-		.services .service .service-status {
-			font-size: 18px;
-			margin-bottom: 10px;
-		}
-
-		.services .service .service-status .status {
-			font-weight: bold;
-		}
-
-		.services .service .service-status .status.online {
-			color: #5cb85c;
-		}
-
-		.services .service .service-status .status.offline {
-			color: #d9534f;
-		}
-
-		.services .service .service-status .status.unknown {
-			color: #f0ad4e;
-		}
-
-		.services .service .service-status .status.maintenance {
-			color: #5bc0de;
-		}
-
-		.services .service .service-status .status.issues {
-			color: #d9534f;
-		}
-
-		/* service logo */
-		.services .service .service-logo {
-			width: 100px;
-			height: 100px;
-			border-radius: 50%;
-			background: #fff;
-			margin: 0 auto;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 10px;
-		}
-
-		.services .service .service-logo img {
-			max-width: 100%;
-			max-height: 100%;
-		}
-
-		#myChart {
-			width: 100%;
-			height: 400px;
-		}
-	</style>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
 </head>
 <body>
 	<!-- Header -->
@@ -217,17 +17,16 @@
 				<div class="headernav">
 					<!-- Logo -->
 					<div class="logo">
-						<h1><a href="index.html">Uptime Ghana</a></h1>
+						<h1><a href="/">
+							<img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo">
+						</a></h1>
 					</div>
 
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search for..." name="search">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit">Go!</button>
-						</span>
 					</div>
 
-					<div class="navbar">
+					<div class="menu-items">
 						<ul>
 							<li><a href="#">Home</a></li>
 							<li><a href="#">About</a></li>
@@ -251,15 +50,21 @@
 						<h1 class="hero-title">Real-time service outage monitoring</h1>
 						<p class="hero-subtitle">We monitor your services and notify you when they go down.</p>
 						<!-- Search form -->
+						<div class="searchbar">
+							<form action="/search" method="post">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search for..." name="search">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">Check Status</button>
+									</span>
+								</div>
+							</form>
+						</div>
+						
 
-						<form action="/search" method="post">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search for..." name="search">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit">Go!</button>
-								</span>
-							</div>
-						</form>
+						{% for name, status in status_dict.items() %}
+							<p>Status of {{ name }}: {{ status }}</p>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
@@ -270,7 +75,8 @@
 	<div class="services">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
+				{% for name, status in status_dict.items() %}
+				<div class="col-md-4" >
 					<div class="card service">
 						<div class="service-logo">
 							<img src="https://th.bing.com/th/id/OIP.QHy_DhuiJKv14Hv7T_cm7gHaGx?pid=ImgDet&rs=1" alt="Avatar" style="width:100%">
@@ -285,6 +91,7 @@
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
