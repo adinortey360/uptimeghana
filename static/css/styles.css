@@ -98,6 +98,53 @@ body {
     margin: auto;
 }
 
+
+.mini-cards {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 70px auto 0px;
+    max-width: 1200px;
+    padding: 0 15px;
+    gap: 10px;
+    overflow-x: hidden;
+}
+
+.mini-card {
+    display: flex;
+    background: rgb(255 255 255 / 88%);
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px 2px rgb(0 0 0 / 15%);
+    padding: 0px 15px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.mini-card .company_logo {
+    width: 30px;
+    height: 30px;
+    margin: 0px 10px 0px 0px;
+}
+
+.mini-card .company_logo img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.mini-card .company_name {
+    color: #333333;
+}
+
+.mini-card h4 {
+    margin-bottom: 2px;
+}
+
 .hero-subtitle {
     font-size: 24px;
     margin-bottom: 30px;

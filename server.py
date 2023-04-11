@@ -22,6 +22,13 @@ sites = [
 
 
 
+    
+    
+
+
+
+
+
 @app.route('/')
 def index():
     # conn = sqlite3.connect('sites.db')
@@ -35,10 +42,19 @@ def index():
     status_dict = {}
     for site in sites:
         name = site[0]
-        url = site[1]
-        downtime = site[2]
-        status, downtime = check_website_status(url, downtime)
-        status_dict[name] = {'status': status, 'downtime': downtime}
+        company = site[1]
+        url = site[2]
+        category = site[3]
+        popularity = site[4]
+        downtime = site[5]
+        # status, downtime = check_website_status(url, downtime)
+        status_dict[name] = {
+            'company': company,
+            'url': url,
+            'category': category,
+            'popularity': popularity,
+            'downtime': downtime,
+        }
 
     return render_template('index.html', status_dict=status_dict)
 

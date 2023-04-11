@@ -62,9 +62,20 @@
 						</div>
 						
 
-						{% for name, status in status_dict.items() %}
-							<p>Status of {{ name }}: {{ status }}</p>
-						{% endfor %}
+						<div class="mini-cards">
+							{% for name, status in status_dict.items() %}
+									<div class="mini-card">
+									<div class="company_logo">
+										<img src="https://th.bing.com/th/id/OIP.QHy_DhuiJKv14Hv7T_cm7gHaGx?pid=ImgDet&rs=1" alt="Avatar" style="width:100%">
+									</div>
+									<div class="company_name">
+										<h4><b>{{ status.company }}</b></h4>
+										<p>{{ status.company }}</p>
+									</div>
+									</div>
+							{% endfor %}
+						</div>
+						
 					</div>
 				</div>
 			</div>
