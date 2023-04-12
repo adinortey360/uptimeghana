@@ -90,12 +90,12 @@
 				<div class="col-md-4" >
 					<div class="card service">
 						<div class="service-logo">
-							<img src="https://th.bing.com/th/id/OIP.QHy_DhuiJKv14Hv7T_cm7gHaGx?pid=ImgDet&rs=1" alt="Avatar" style="width:100%">
+							<img src="{{ status.logo }}" alt="Avatar" style="width:100%">
 						</div>
 						
 						<div>
 							<h4><b>Uptime</b></h4>
-							<p>Online</p>
+							<p>{{ "Online" if status.status_code == 200 else "Offline" }}</p>
 						</div>
 					</div>
 				</div>
