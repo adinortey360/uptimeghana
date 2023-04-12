@@ -64,19 +64,19 @@ def check_website_status(url, downtime):
         return 'Error', downtime
     
 
-sites = [
-    ('mtngh', 'MTN', 'https://mtn.com.gh', 'telecom', 200, 'https://th.bing.com/th/id/OIP.QHy_DhuiJKv14Hv7T_cm7gHaGx?pid=ImgDet&rs=1', 403, False),
-    ('vodafonegh', 'Vodafone', 'https://vodafone.com.gh', 'telecom', 5000, 'https://logos-world.net/wp-content/uploads/2020/09/Vodafone-Logo.png', 503, False),
-    ('glogh', 'Glo', 'https://gloworld.com/gh', 'telecom', 234, 'https://www.gloworld.com/logo.png', 404, False),
-    ('airteltigo', 'AirtelTigo', 'https://airteltigo.com.gh', 'telecom', 321,'https://airteltigo.com.gh/assets/img/logo.png', 404, False),
-    ('ghanagov', 'Ghana.GOV', 'https://ghana.gov.gh', 'gov', 345, 'https://www.ghana.gov.gh/static/images/logos/gov-logo.png', 404, False),
-    ('ghanaweb', 'GhanaWeb', 'https://ghanaweb.com', 'news', 242, 'https://cdn.ghanaweb.com/design/logo_desktop.png', 200, True),
-    ('citifmonline', 'CitiFM', 'https://citinewsroom.com', 'news', 2, 'https://citinewsroom.com/wp-content/uploads/2019/08/cnr_logo_web.png', 404, False),
-    ('graphic', 'Graphic', 'https://graphic.com.gh', 'news', 263, 'https://techera-gh.org/wp-content/uploads/2020/12/Daily-Graphic.jpg', 404, False),
-    ('gra', 'GRA', 'https://gra.gov.gh', 'gov',  58, 'https://siga.gov.gh/wp-content/uploads/2020/09/Ghana-Revenue-Authority-GRA-Jobs-in-Ghana.jpg', 404, False),
-    ('ghanahealthservice', 'Ghana Health Service', 'https://ghs.gov.gh', 'gov', 3, 'https://ghs.gov.gh/wp-content/uploads/2022/06/logo.png', 404, False),
-    ('moh', 'MoH', 'https://moh.gov.gh', 'gov', 6, 'https://www.moh.gov.gh/wp-content/uploads/2019/07/moh-xl.png', 404, False),
-]
+# sites = [
+#     ('mtngh', 'MTN', 'https://mtn.com.gh', 'telecom', 200, 'https://th.bing.com/th/id/OIP.QHy_DhuiJKv14Hv7T_cm7gHaGx?pid=ImgDet&rs=1', 403, False),
+#     ('vodafonegh', 'Vodafone', 'https://vodafone.com.gh', 'telecom', 5000, 'https://logos-world.net/wp-content/uploads/2020/09/Vodafone-Logo.png', 503, False),
+#     ('glogh', 'Glo', 'https://gloworld.com/gh', 'telecom', 234, 'https://www.gloworld.com/logo.png', 404, False),
+#     ('airteltigo', 'AirtelTigo', 'https://airteltigo.com.gh', 'telecom', 321,'https://airteltigo.com.gh/assets/img/logo.png', 404, False),
+#     ('ghanagov', 'Ghana.GOV', 'https://ghana.gov.gh', 'gov', 345, 'https://www.ghana.gov.gh/static/images/logos/gov-logo.png', 404, False),
+#     ('ghanaweb', 'GhanaWeb', 'https://ghanaweb.com', 'news', 242, 'https://cdn.ghanaweb.com/design/logo_desktop.png', 200, True),
+#     ('citifmonline', 'CitiFM', 'https://citinewsroom.com', 'news', 2, 'https://citinewsroom.com/wp-content/uploads/2019/08/cnr_logo_web.png', 404, False),
+#     ('graphic', 'Graphic', 'https://graphic.com.gh', 'news', 263, 'https://techera-gh.org/wp-content/uploads/2020/12/Daily-Graphic.jpg', 404, False),
+#     ('gra', 'GRA', 'https://gra.gov.gh', 'gov',  58, 'https://siga.gov.gh/wp-content/uploads/2020/09/Ghana-Revenue-Authority-GRA-Jobs-in-Ghana.jpg', 404, False),
+#     ('ghanahealthservice', 'Ghana Health Service', 'https://ghs.gov.gh', 'gov', 3, 'https://ghs.gov.gh/wp-content/uploads/2022/06/logo.png', 404, False),
+#     ('moh', 'MoH', 'https://moh.gov.gh', 'gov', 6, 'https://www.moh.gov.gh/wp-content/uploads/2019/07/moh-xl.png', 404, False),
+# ]
 
 # db_file = 'sites.db'
 # for site in sites:
