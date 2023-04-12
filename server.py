@@ -22,13 +22,6 @@ sites = [
 
 
 
-    
-    
-
-
-
-
-
 @app.route('/')
 def index():
     # conn = sqlite3.connect('sites.db')
@@ -57,6 +50,16 @@ def index():
         }
 
     return render_template('index.html', status_dict=status_dict)
+
+
+
+# Update the database with website entries
+def create_entry(conn, entry):
+    """Update an entry in the database."""
+    sql = '''UPDATE sites 
+             SET name = ?,
+                 url = ?,
+                 image = ?'''
 
 def check_website_status(url, downtime):
     try:
