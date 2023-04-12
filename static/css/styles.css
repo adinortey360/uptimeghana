@@ -109,7 +109,7 @@ body {
     max-width: 1200px;
     padding: 0 15px;
     gap: 10px;
-    overflow-x: hidden;
+    overflow-x: auto;
 }
 
 .mini-card {

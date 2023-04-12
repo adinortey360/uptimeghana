@@ -38,13 +38,14 @@ def fetch_all_entries(conn):
 
 def check_website_status(url, downtime):
     try:
-        conn = create_connection('sites.db')
+        conn = create_connection('./database/sites.db')
         response = requests.get(url)
         status_code = response.status_code
         if response.status_code == 200:
             # site is online
+            downtime = datetime.datetime.now()
             cursor = conn.cursor()
-            cursor.execute(f'UPDATE sites SET status_code = {response.status_code}, downtime = NULL WHERE url = ?', (url))
+            cursor.execute(f'UPDATE sites SET downtime = ?, status_code = {status_code} WHERE url = ?', (downtime, url))
             conn.commit()
             conn.close()
             return 'Online', None
@@ -52,12 +53,12 @@ def check_website_status(url, downtime):
             # site is offline
             downtime = datetime.datetime.now()
             cursor = conn.cursor() 
-            lastime_check = cursor.execute(f'SELECT downtime FROM sites WHERE url = ?', (url))
-            time_difference = downtime - lastime_check
-            cursor.execute('UPDATE sites SET downtime = ? WHERE url = ?', (downtime, url))
+            lastime_check = cursor.execute('SELECT downtime FROM sites WHERE url = ?', (url))
+            uptime_diff = downtime - lastime_check
+            cursor.execute('UPDATE sites SET downtime = ? WHERE url = ?', (uptime_diff, url))
             conn.commit()
             conn.close()
-            return 'Offline', time_difference
+            return 'Offline', uptime_diff
            
     except:
         Exception('Failed to fetch website status')
@@ -87,5 +88,3 @@ def check_website_status(url, downtime):
 #         print(f'Entry created with ID: {entry_id}')
 #     else:
 #         print(f'Error! Cannot establish connection to database')
-
-    
