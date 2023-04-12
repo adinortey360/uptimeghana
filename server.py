@@ -14,7 +14,7 @@ def index():
     # sites = cursor.fetchall()
     # conn.close()
 
-    conn = db_logic.create_connection('database/sites.db')
+    conn = db_logic.create_connection('./database/sites.db')
     sites = db_logic.fetch_all_entries(conn)
     status_dict = {}
     for site in sites:
@@ -43,7 +43,7 @@ def index():
 
 def check_website_status(url):
     try:
-        conn = db_logic.create_connection('database/sites.db')
+        conn = db_logic.create_connection('./database/sites.db')
         downtime = datetime.datetime.now()
         response = requests.get(url)
         if response.status_code == 200:

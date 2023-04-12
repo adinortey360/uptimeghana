@@ -78,14 +78,14 @@ sites = [
     ('moh', 'MoH', 'https://moh.gov.gh', 'gov', 6, 'https://www.moh.gov.gh/wp-content/uploads/2019/07/moh-xl.png', 404, False),
 ]
 
-db_file = 'sites.db'
-for site in sites:
-    conn = create_connection(db_file)
-    if conn:
-        entry = (site[0], site[1], site[2], site[3], site[4], site[5], site[6], site[7])
-        entry_id = create_entry(conn, entry)
-        print(f'Entry created with ID: {entry_id}')
-    else:
-        print(f'Error! Cannot establish connection to database')
+# db_file = 'sites.db'
+# for site in sites:
+#     conn = create_connection(db_file)
+#     if conn:
+#         entry = (site[0], site[1], site[2], site[3], site[4], site[5], site[6], site[7])
+#         entry_id = create_entry(conn, entry)
+#         print(f'Entry created with ID: {entry_id}')
+#     else:
+#         print(f'Error! Cannot establish connection to database')
 
     
