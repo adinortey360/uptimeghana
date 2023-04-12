@@ -18,14 +18,14 @@ def index():
     sites = db_logic.fetch_all_entries(conn)
     status_dict = {}
     for site in sites:
-        name = site[0]
-        company = site[1]
-        url = site[2]
-        category = site[3]
-        popularity = site[4]
-        image = site[5]
-        status_code = site[6]
-        downtime = site[7]
+        name = site[1]
+        company = site[2]
+        url = site[3]
+        category = site[4]
+        popularity = site[5]
+        image = site[6]
+        status_code = site[7]
+        downtime = site[8]
         # status, downtime = check_website_status(url, downtime)
         status_dict[name] = {
             'company': company,
