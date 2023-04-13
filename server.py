@@ -1,98 +1,36 @@
 from flask import Flask, render_template
-import requests
-import sqlite3
-import datetime
+from database import db_logic
 
 app = Flask(__name__)
 
-# TODO: Use database instead of list
-sites = [
-    ('mtngh', 'MTN', 'mtn.com.gh', 'telecom', 200, False),
-    ('vodafonegh', 'Vodafone', 'vodafone.com.gh', 'telecom', 5000, False),
-    ('airtelgh', 'Airtel', 'airtel.com.gh', 'telecom', 855, True),
-    ('glogh', 'Glo', 'glo.com.gh', 'telecom', 234, False),
-    ('airteltigo', 'AirtelTigo', 'airteltigo.com', 321, 'telecom', False),
-    ('ghanagov', 'Ghana.GOV', 'ghana.gov.gh', 'gov', 345, False),
-    ('ghanaweb', 'GhanaWeb', 'ghanaweb.com', 'news', 242, True),
-    ('citifmonline', 'CitiFM', 'citifmonline.com', 'news', 2, False),
-    ('graphic', 'Graphic', 'graphic.com.gh', 'news', 263, False),
-    ('gra', 'GRA', 'gra.gov.gh', 'gov',  58, False),
-    ('ghanahealthservice', 'Ghana Health Service', 'ghanahealthservice.org', 'gov', 3, False),
-]
-
-
-
-    
-    
-
-
-
-
-
 @app.route('/')
 def index():
-    # conn = sqlite3.connect('sites.db')
-    # cursor = conn.cursor()
-    # cursor.execute('SELECT name, url, downtime FROM sites')
-    # sites = cursor.fetchall()
-    # conn.close()
-
-    
-
+    conn = db_logic.create_connection('./database/sites.db')
+    sites = db_logic.fetch_all_entries(conn)
     status_dict = {}
     for site in sites:
-        name = site[0]
-        company = site[1]
-        url = site[2]
-        category = site[3]
-        popularity = site[4]
-        downtime = site[5]
+        name = site[1]
+        company = site[2]
+        url = site[3]
+        category = site[4]
+        popularity = site[5]
+        image = site[6]
+        status_code = site[7]
+        downtime = site[8]
         # status, downtime = check_website_status(url, downtime)
+        db_logic.check_website_status(url, downtime)
+
         status_dict[name] = {
             'company': company,
             'url': url,
             'category': category,
             'popularity': popularity,
+            'logo': image,
+            'status_code': status_code,
             'downtime': downtime,
         }
 
     return render_template('index.html', status_dict=status_dict)
-
-def check_website_status(url, downtime):
-    try:
-        response = requests.get(url)
-        if response.status_code == 200:
-            if downtime is not None:
-                # site is back online
-                conn = sqlite3.connect('sites.db')
-                cursor = conn.cursor()
-                cursor.execute('UPDATE sites SET downtime=NULL WHERE url=?', (url,))
-                conn.commit()
-                conn.close()
-
-            return 'Online', None
-        else:
-            if downtime is None:
-                # site just went down
-                downtime = datetime.datetime.now()
-                conn = sqlite3.connect('sites.db')
-                cursor = conn.cursor()
-                cursor.execute('UPDATE sites SET downtime=? WHERE url=?', (downtime, url))
-                conn.commit()
-                conn.close()
-
-            return 'Offline', downtime
-    except:
-        if downtime is None:
-            # site just went down
-            downtime = datetime.datetime.now()
-            conn = sqlite3.connect('sites.db')
-            cursor = conn.cursor()
-            cursor.execute('UPDATE sites SET downtime=? WHERE url=?', (downtime, url))
-            conn.commit()
-            conn.close()
-
-        return 'Error', downtime
 
 if __name__ == '__main__':
     app.run(debug=True)
